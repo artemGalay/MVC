@@ -16,7 +16,7 @@ class TableView: UIView {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(DefaultTableViewCell.self, forCellReuseIdentifier: "DefaultTableViewCell")
         tableView.register(LabelTableViewCell.self, forCellReuseIdentifier: "LabelTableViewCell")
-//        tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: "SwitchTableViewCell")
+        tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: "SwitchTableViewCell")
 //        tableView.register(NotifyImageTableViewCell.self, forCellReuseIdentifier: "NotifyImageTableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
@@ -76,7 +76,10 @@ extension TableView: UITableViewDataSource, UITableViewDelegate {
             labelCell?.accessoryType = .disclosureIndicator
             return labelCell ?? UITableViewCell()
         case .switchCell:
-            <#code#>
+            let switchCell = tableView.dequeueReusableCell(withIdentifier: "SwitchTableViewCell", for: indexPath) as? SwitchTableViewCell
+            switchCell?.contents = ContentSections.contentSections[indexPath.section].settingCellItem[indexPath.row]
+            switchCell?.selectionStyle = .none
+            return switchCell ?? UITableViewCell()
         case .imageCell:
             <#code#>
         }
