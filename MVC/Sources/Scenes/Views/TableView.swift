@@ -13,7 +13,7 @@ final class TableView: UIView {
     // MARK: - UIElements
 
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.register(DefaultTableViewCell.self, forCellReuseIdentifier: "DefaultTableViewCell")
         tableView.register(LabelTableViewCell.self, forCellReuseIdentifier: "LabelTableViewCell")
         tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: "SwitchTableViewCell")

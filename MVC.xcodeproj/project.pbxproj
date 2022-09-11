@@ -109,8 +109,8 @@
 		D988227F28CDE00300726BB5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				D988228728CDE3C600726BB5 /* Views */,
 				D988228128CDE03200726BB5 /* Model */,
+				D988228728CDE3C600726BB5 /* Views */,
 				D988228028CDE01A00726BB5 /* Controllers */,
 			);
 			path = Scenes;
