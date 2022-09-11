@@ -15,11 +15,11 @@ class TableView: UIView {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(DefaultTableViewCell.self, forCellReuseIdentifier: "DefaultTableViewCell")
-//        tableView.register(LabelTableViewCell.self, forCellReuseIdentifier: "LabelTableViewCell")
+        tableView.register(LabelTableViewCell.self, forCellReuseIdentifier: "LabelTableViewCell")
 //        tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: "SwitchTableViewCell")
 //        tableView.register(NotifyImageTableViewCell.self, forCellReuseIdentifier: "NotifyImageTableViewCell")
-//        tableView.dataSource = self
-//        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
         return tableView
     }()
 
@@ -71,7 +71,10 @@ extension TableView: UITableViewDataSource, UITableViewDelegate {
             defaultCell?.accessoryType = .disclosureIndicator
             return defaultCell ?? UITableViewCell()
         case .labelCell:
-            <#code#>
+            let labelCell = tableView.dequeueReusableCell(withIdentifier: "LabelTableViewCell", for: indexPath) as? LabelTableViewCell
+            labelCell?.contents = ContentSections.contentSections[indexPath.section].settingCellItem[indexPath.row]
+            labelCell?.accessoryType = .disclosureIndicator
+            return labelCell ?? UITableViewCell()
         case .switchCell:
             <#code#>
         case .imageCell:
