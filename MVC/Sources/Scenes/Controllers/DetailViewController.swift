@@ -24,6 +24,8 @@ final class DetailViewController: UIViewController {
         configureView()
     }
 
+    // MARK: - Configuration
+
     func configureView() {
         guard let models = contents else { return }
         detailView?.configuration(data: models)

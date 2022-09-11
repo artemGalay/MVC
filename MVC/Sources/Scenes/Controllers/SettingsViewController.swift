@@ -9,14 +9,14 @@ import UIKit
 import SnapKit
 
 final class SettingsViewController: UIViewController {
-
+    
     private var tableView: TableView? {
         guard isViewLoaded else { return nil }
         return view as? TableView
     }
-
+    
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Настройки"
@@ -33,15 +33,15 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return ContentSections.contentSections.count
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ContentSections.contentSections[section].settingCellItem.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let content = ContentSections.contentSections[indexPath.section].settingCellItem[indexPath.row]
-
+        
         switch content.typeCell {
         case .defaultCell:
             let defaultCell = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell", for: indexPath) as? DefaultTableViewCell
@@ -65,7 +65,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             return imageCell ?? UITableViewCell()
         }
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if ContentSections.contentSections[indexPath.section].settingCellItem[indexPath.row].typeCell != .switchCell {
             let viewController = DetailViewController()
