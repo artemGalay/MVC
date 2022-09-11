@@ -14,7 +14,7 @@ class TableView: UIView {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-//        tableView.register(DefaultTableViewCell.self, forCellReuseIdentifier: "DefaultTableViewCell")
+        tableView.register(DefaultTableViewCell.self, forCellReuseIdentifier: "DefaultTableViewCell")
 //        tableView.register(LabelTableViewCell.self, forCellReuseIdentifier: "LabelTableViewCell")
 //        tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: "SwitchTableViewCell")
 //        tableView.register(NotifyImageTableViewCell.self, forCellReuseIdentifier: "NotifyImageTableViewCell")
@@ -61,8 +61,23 @@ extension TableView: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
+
+        let content = ContentSections.contentSections[indexPath.section].settingCellItem[indexPath.row]
+
+        switch content.typeCell {
+        case .defaultCell:
+            let defaultCell = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell", for: indexPath) as? DefaultTableViewCell
+            defaultCell?.contents = ContentSections.contentSections[indexPath.section].settingCellItem[indexPath.row]
+            defaultCell?.accessoryType = .disclosureIndicator
+            return defaultCell ?? UITableViewCell()
+        case .labelCell:
+            <#code#>
+        case .switchCell:
+            <#code#>
+        case .imageCell:
+            <#code#>
+        }
 
 }
 
+}
