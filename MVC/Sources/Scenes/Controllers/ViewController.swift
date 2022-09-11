@@ -12,9 +12,9 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+                title = "Настройки"
+                navigationController?.navigationBar.prefersLargeTitles = true
 
     }
-
-
 }
 
