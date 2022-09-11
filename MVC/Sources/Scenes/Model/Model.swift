@@ -118,4 +118,3 @@ extension ContentSections {
                                          typeCell: .defaultCell)]),
     ]
 }
-

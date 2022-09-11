@@ -16,7 +16,7 @@ final class NotifyImageTableViewCell: DefaultTableViewCell {
         let imageView = UIImageView()
         imageView.tintColor = .red
         return imageView
-    } ()
+    }()
 
     // MARK: - Initialisers
 
