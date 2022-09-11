@@ -17,6 +17,7 @@
 		D988228928CDE40B00726BB5 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988228828CDE40B00726BB5 /* TableView.swift */; };
 		D988228C28CDE72200726BB5 /* DefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988228B28CDE72200726BB5 /* DefaultCell.swift */; };
 		D988228E28CDE80D00726BB5 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988228D28CDE80D00726BB5 /* LabelCell.swift */; };
+		D988229028CDE8B600726BB5 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988228F28CDE8B600726BB5 /* SwitchCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		D988228828CDE40B00726BB5 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		D988228B28CDE72200726BB5 /* DefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCell.swift; sourceTree = "<group>"; };
 		D988228D28CDE80D00726BB5 /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
+		D988228F28CDE8B600726BB5 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			children = (
 				D988228B28CDE72200726BB5 /* DefaultCell.swift */,
 				D988228D28CDE80D00726BB5 /* LabelCell.swift */,
+				D988228F28CDE8B600726BB5 /* SwitchCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				D988228E28CDE80D00726BB5 /* LabelCell.swift in Sources */,
 				D988228928CDE40B00726BB5 /* TableView.swift in Sources */,
 				D988228328CDE04100726BB5 /* Model.swift in Sources */,
+				D988229028CDE8B600726BB5 /* SwitchCell.swift in Sources */,
 				D988226928CDDDEB00726BB5 /* AppDelegate.swift in Sources */,
 				D988226B28CDDDEB00726BB5 /* SceneDelegate.swift in Sources */,
 			);
