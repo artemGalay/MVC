@@ -1,5 +1,5 @@
 //
-//  LabelCell.swift
+//  NotifyImageCell.swift
 //  MVC
 //
 //  Created by Артем Галай on 11.09.22.
@@ -8,16 +8,15 @@
 import UIKit
 import SnapKit
 
-final class LabelTableViewCell: DefaultTableViewCell {
+final class NotifyImageTableViewCell: DefaultTableViewCell {
 
     // MARK: - UIElements
 
-    private lazy var rightLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textColor = .lightGray
-        return label
-    }()
+    lazy var notifyImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.tintColor = .red
+        return imageView
+    } ()
 
     // MARK: - Initialisers
 
@@ -34,12 +33,13 @@ final class LabelTableViewCell: DefaultTableViewCell {
     // MARK: - Setup
 
     private func setupHierarchy() {
-        addSubview(rightLabel)
+        addSubview(notifyImage)
     }
 
     private func setupLayout() {
-        rightLabel.snp.makeConstraints {
+        notifyImage.snp.makeConstraints {
             $0.centerY.equalTo(settingLabel)
+            $0.width.height.equalTo(30)
             $0.trailing.equalToSuperview().offset(-35)
         }
     }
@@ -48,6 +48,6 @@ final class LabelTableViewCell: DefaultTableViewCell {
 
     override func configuration(data: SettingCell?) {
         super.configuration(data: data!)
-        rightLabel.text = data?.additionalLabel
+        notifyImage.image = data?.notifyIcon
     }
 }

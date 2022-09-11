@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D988226928CDDDEB00726BB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988226828CDDDEB00726BB5 /* AppDelegate.swift */; };
 		D988226B28CDDDEB00726BB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988226A28CDDDEB00726BB5 /* SceneDelegate.swift */; };
-		D988226D28CDDDEB00726BB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988226C28CDDDEB00726BB5 /* ViewController.swift */; };
+		D988226D28CDDDEB00726BB5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988226C28CDDDEB00726BB5 /* SettingsViewController.swift */; };
 		D988227228CDDDEC00726BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D988227128CDDDEC00726BB5 /* Assets.xcassets */; };
 		D988227528CDDDEC00726BB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D988227328CDDDEC00726BB5 /* LaunchScreen.storyboard */; };
 		D988228328CDE04100726BB5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988228228CDE04100726BB5 /* Model.swift */; };
@@ -18,13 +18,14 @@
 		D988228C28CDE72200726BB5 /* DefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988228B28CDE72200726BB5 /* DefaultCell.swift */; };
 		D988228E28CDE80D00726BB5 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988228D28CDE80D00726BB5 /* LabelCell.swift */; };
 		D988229028CDE8B600726BB5 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988228F28CDE8B600726BB5 /* SwitchCell.swift */; };
+		D988229228CDE93800726BB5 /* NotifyImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988229128CDE93800726BB5 /* NotifyImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D988226528CDDDEB00726BB5 /* MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D988226828CDDDEB00726BB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D988226A28CDDDEB00726BB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D988226C28CDDDEB00726BB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D988226C28CDDDEB00726BB5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D988227128CDDDEC00726BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D988227428CDDDEC00726BB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D988227628CDDDEC00726BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,6 +34,7 @@
 		D988228B28CDE72200726BB5 /* DefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCell.swift; sourceTree = "<group>"; };
 		D988228D28CDE80D00726BB5 /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		D988228F28CDE8B600726BB5 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
+		D988229128CDE93800726BB5 /* NotifyImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +115,7 @@
 		D988228028CDE01A00726BB5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D988226C28CDDDEB00726BB5 /* ViewController.swift */,
+				D988226C28CDDDEB00726BB5 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -141,6 +143,7 @@
 				D988228B28CDE72200726BB5 /* DefaultCell.swift */,
 				D988228D28CDE80D00726BB5 /* LabelCell.swift */,
 				D988228F28CDE8B600726BB5 /* SwitchCell.swift */,
+				D988229128CDE93800726BB5 /* NotifyImageCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -221,9 +224,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D988226D28CDDDEB00726BB5 /* ViewController.swift in Sources */,
+				D988226D28CDDDEB00726BB5 /* SettingsViewController.swift in Sources */,
 				D988228C28CDE72200726BB5 /* DefaultCell.swift in Sources */,
 				D988228E28CDE80D00726BB5 /* LabelCell.swift in Sources */,
+				D988229228CDE93800726BB5 /* NotifyImageCell.swift in Sources */,
 				D988228928CDE40B00726BB5 /* TableView.swift in Sources */,
 				D988228328CDE04100726BB5 /* Model.swift in Sources */,
 				D988229028CDE8B600726BB5 /* SwitchCell.swift in Sources */,

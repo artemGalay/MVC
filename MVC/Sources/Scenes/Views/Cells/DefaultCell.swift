@@ -11,15 +11,7 @@ import SnapKit
 
 class DefaultTableViewCell: UITableViewCell {
 
-    var contents: SettingCell? {
-        didSet {
-            iconImage.image = contents?.icon
-            settingLabel.text = contents?.settingLabel
-            backIconImage.backgroundColor = contents?.backgroundcolorIcon
-        }
-    }
-
-    // MARK: - Outlets
+    // MARK: - UIElements
 
     lazy var iconImage: UIImageView = {
         let imageView = UIImageView()
@@ -27,19 +19,19 @@ class DefaultTableViewCell: UITableViewCell {
         imageView.tintColor = .white
         imageView.clipsToBounds = true
         return imageView
-    } ()
+    }()
 
     lazy var backIconImage: UIView = {
         let view = UIImageView()
         view.layer.cornerRadius = 8
         return view
-    } ()
+    }()
 
     lazy var settingLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)
         return label
-    } ()
+    }()
 
     // MARK: - Initialisers
 
@@ -61,10 +53,6 @@ class DefaultTableViewCell: UITableViewCell {
         addSubview(settingLabel)
     }
 
-    func configure(data: SettingCell?) {
-        iconImage.image = data?.icon
-    }
-
     private func setupLayout() {
         backIconImage.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20)
@@ -81,5 +69,13 @@ class DefaultTableViewCell: UITableViewCell {
             $0.centerY.equalTo(backIconImage)
             $0.leading.equalTo(backIconImage.snp.trailing).offset(20)
         }
+    }
+
+    // MARK: - Configuration
+
+    func configuration(data: SettingCell) {
+        iconImage.image = data.icon
+        settingLabel.text = data.settingLabel
+        backIconImage.backgroundColor = data.backgroundcolorIcon
     }
 }

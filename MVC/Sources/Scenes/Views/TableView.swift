@@ -17,7 +17,7 @@ class TableView: UIView {
         tableView.register(DefaultTableViewCell.self, forCellReuseIdentifier: "DefaultTableViewCell")
         tableView.register(LabelTableViewCell.self, forCellReuseIdentifier: "LabelTableViewCell")
         tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: "SwitchTableViewCell")
-//        tableView.register(NotifyImageTableViewCell.self, forCellReuseIdentifier: "NotifyImageTableViewCell")
+        tableView.register(NotifyImageTableViewCell.self, forCellReuseIdentifier: "NotifyImageTableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
@@ -26,9 +26,7 @@ class TableView: UIView {
     // MARK: - Lifecycle
 
     override init(frame: CGRect) {
-        super.init(frame: .zero)
-        backgroundColor = .white
-//        contents = ContentSections.contentSections
+        super.init(frame: frame)
         setupHierarhy()
         setupLayout()
     }
@@ -67,23 +65,24 @@ extension TableView: UITableViewDataSource, UITableViewDelegate {
         switch content.typeCell {
         case .defaultCell:
             let defaultCell = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell", for: indexPath) as? DefaultTableViewCell
-            defaultCell?.contents = ContentSections.contentSections[indexPath.section].settingCellItem[indexPath.row]
+            defaultCell?.configuration(data: content)
             defaultCell?.accessoryType = .disclosureIndicator
             return defaultCell ?? UITableViewCell()
         case .labelCell:
             let labelCell = tableView.dequeueReusableCell(withIdentifier: "LabelTableViewCell", for: indexPath) as? LabelTableViewCell
-            labelCell?.contents = ContentSections.contentSections[indexPath.section].settingCellItem[indexPath.row]
+            labelCell?.configuration(data: content)
             labelCell?.accessoryType = .disclosureIndicator
             return labelCell ?? UITableViewCell()
         case .switchCell:
             let switchCell = tableView.dequeueReusableCell(withIdentifier: "SwitchTableViewCell", for: indexPath) as? SwitchTableViewCell
-            switchCell?.contents = ContentSections.contentSections[indexPath.section].settingCellItem[indexPath.row]
+            switchCell?.configuration(data: content)
             switchCell?.selectionStyle = .none
             return switchCell ?? UITableViewCell()
         case .imageCell:
-            <#code#>
+            let imageCell = tableView.dequeueReusableCell(withIdentifier: "NotifyImageTableViewCell", for: indexPath) as? NotifyImageTableViewCell
+            imageCell?.configuration(data: content) 
+            imageCell?.accessoryType = .disclosureIndicator
+            return imageCell ?? UITableViewCell()
         }
-
-}
-
+    }
 }
