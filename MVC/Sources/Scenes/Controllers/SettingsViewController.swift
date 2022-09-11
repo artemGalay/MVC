@@ -8,13 +8,9 @@
 import UIKit
 import SnapKit
 
-class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController {
 
-//    var model: ContentSections?
-
-    /// Это вычисляемое свойство преобразует тип родительской view в OnboardingView
-    /// Это делается чтобы мы в будущем могли из Controller'a обращаться к элементам View
-    private var ableView: TableView? {
+    private var tableView: TableView? {
         guard isViewLoaded else { return nil }
         return view as? TableView
     }
@@ -25,22 +21,58 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         title = "Настройки"
         navigationController?.navigationBar.prefersLargeTitles = true
-
-        /// Присваиваем значению View наш созданный класс OnboardingView()
-        /// Можно это сделать в Main.storyboard, но я решил сделать так
         view = TableView()
-//        model = ContentSections.contentSections
-
-//        configureView()
+        tableView?.tableView.dataSource = self
+        tableView?.tableView.delegate = self
     }
 }
 
-// MARK: - Configurations
+// MARK: - UITableViewDataSource, UITableViewDelegate
 
-//private extension SettingsViewController {
-//    func configureView() {
-//        guard let models = model?.createModels() else { return }
-//        onboardingView?.configureView(with: models)
-//    }
+extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return ContentSections.contentSections.count
+    }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ContentSections.contentSections[section].settingCellItem.count
+    }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let content = ContentSections.contentSections[indexPath.section].settingCellItem[indexPath.row]
+
+        switch content.typeCell {
+        case .defaultCell:
+            let defaultCell = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell", for: indexPath) as? DefaultTableViewCell
+            defaultCell?.configuration(data: content)
+            defaultCell?.accessoryType = .disclosureIndicator
+            return defaultCell ?? UITableViewCell()
+        case .labelCell:
+            let labelCell = tableView.dequeueReusableCell(withIdentifier: "LabelTableViewCell", for: indexPath) as? LabelTableViewCell
+            labelCell?.configuration(data: content)
+            labelCell?.accessoryType = .disclosureIndicator
+            return labelCell ?? UITableViewCell()
+        case .switchCell:
+            let switchCell = tableView.dequeueReusableCell(withIdentifier: "SwitchTableViewCell", for: indexPath) as? SwitchTableViewCell
+            switchCell?.configuration(data: content)
+            switchCell?.selectionStyle = .none
+            return switchCell ?? UITableViewCell()
+        case .imageCell:
+            let imageCell = tableView.dequeueReusableCell(withIdentifier: "NotifyImageTableViewCell", for: indexPath) as? NotifyImageTableViewCell
+            imageCell?.configuration(data: content)
+            imageCell?.accessoryType = .disclosureIndicator
+            return imageCell ?? UITableViewCell()
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if ContentSections.contentSections[indexPath.section].settingCellItem[indexPath.row].typeCell != .switchCell {
+            let viewController = DetailViewController()
+            tableView.deselectRow(at: indexPath, animated: true)
+            viewController.contents = ContentSections.contentSections[indexPath.section].settingCellItem[indexPath.row]
+            navigationController?.pushViewController(viewController, animated: true)
+            print("\(viewController.contents?.settingLabel ?? "")")
+        }
+    }
+}

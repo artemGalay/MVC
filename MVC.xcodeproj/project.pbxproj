@@ -19,6 +19,8 @@
 		D988228E28CDE80D00726BB5 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988228D28CDE80D00726BB5 /* LabelCell.swift */; };
 		D988229028CDE8B600726BB5 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988228F28CDE8B600726BB5 /* SwitchCell.swift */; };
 		D988229228CDE93800726BB5 /* NotifyImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988229128CDE93800726BB5 /* NotifyImageCell.swift */; };
+		D988229428CDFE7D00726BB5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988229328CDFE7D00726BB5 /* DetailView.swift */; };
+		D988229628CE004600726BB5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988229528CE004600726BB5 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		D988228D28CDE80D00726BB5 /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		D988228F28CDE8B600726BB5 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		D988229128CDE93800726BB5 /* NotifyImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyImageCell.swift; sourceTree = "<group>"; };
+		D988229328CDFE7D00726BB5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		D988229528CE004600726BB5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				D988226C28CDDDEB00726BB5 /* SettingsViewController.swift */,
+				D988229528CE004600726BB5 /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D988228828CDE40B00726BB5 /* TableView.swift */,
+				D988229328CDFE7D00726BB5 /* DetailView.swift */,
 				D988228A28CDE6B400726BB5 /* Cells */,
 			);
 			path = Views;
@@ -224,9 +230,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D988229628CE004600726BB5 /* DetailViewController.swift in Sources */,
 				D988226D28CDDDEB00726BB5 /* SettingsViewController.swift in Sources */,
 				D988228C28CDE72200726BB5 /* DefaultCell.swift in Sources */,
 				D988228E28CDE80D00726BB5 /* LabelCell.swift in Sources */,
+				D988229428CDFE7D00726BB5 /* DetailView.swift in Sources */,
 				D988229228CDE93800726BB5 /* NotifyImageCell.swift in Sources */,
 				D988228928CDE40B00726BB5 /* TableView.swift in Sources */,
 				D988228328CDE04100726BB5 /* Model.swift in Sources */,
