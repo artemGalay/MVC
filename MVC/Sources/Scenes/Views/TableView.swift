@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class TableView: UIView {
+final class SettingsView: UIView {
 
     // MARK: - UIElements
 

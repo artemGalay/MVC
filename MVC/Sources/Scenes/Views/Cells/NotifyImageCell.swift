@@ -12,7 +12,7 @@ final class NotifyImageTableViewCell: DefaultTableViewCell {
 
     // MARK: - UIElements
 
-    lazy var notifyImage: UIImageView = {
+    private lazy var notifyImage: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .red
         return imageView

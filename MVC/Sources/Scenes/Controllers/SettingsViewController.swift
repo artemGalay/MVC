@@ -10,9 +10,13 @@ import SnapKit
 
 final class SettingsViewController: UIViewController {
     
-    private var tableView: TableView? {
+    private var settingsView: SettingsView? {
         guard isViewLoaded else { return nil }
-        return view as? TableView
+        return view as? SettingsView
+    }
+
+    override func loadView() {
+        view = SettingsView()
     }
     
     // MARK: - Lifecycle
@@ -21,9 +25,8 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         title = "Настройки"
         navigationController?.navigationBar.prefersLargeTitles = true
-        view = TableView()
-        tableView?.tableView.dataSource = self
-        tableView?.tableView.delegate = self
+        settingsView?.tableView.dataSource = self
+        settingsView?.tableView.delegate = self
     }
 }
 
@@ -37,6 +40,15 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ContentSections.contentSections[section].settingCellItem.count
     }
+
+    func universalCell2<T: UITableViewCell>(cell: T,
+                                            accessoryType: UITableViewCell.AccessoryType,
+                                            _ indexPath: IndexPath,
+                                            _ tableView: UITableView) -> T {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(T.self)", for: indexPath) as? T
+        else { return UITableViewCell() as? T ?? cell }
+        return cell
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -44,25 +56,23 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         
         switch content.typeCell {
         case .defaultCell:
-            let defaultCell = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell", for: indexPath) as? DefaultTableViewCell
-            defaultCell?.configuration(data: content)
-            defaultCell?.accessoryType = .disclosureIndicator
-            return defaultCell ?? UITableViewCell()
+            let cell = universalCell2(cell: DefaultTableViewCell(), accessoryType: .disclosureIndicator, indexPath, tableView)
+            cell.configuration(data: content)
+            return cell
+
         case .labelCell:
-            let labelCell = tableView.dequeueReusableCell(withIdentifier: "LabelTableViewCell", for: indexPath) as? LabelTableViewCell
-            labelCell?.configuration(data: content)
-            labelCell?.accessoryType = .disclosureIndicator
-            return labelCell ?? UITableViewCell()
+            let cell = universalCell2(cell: LabelTableViewCell(), accessoryType: .disclosureIndicator, indexPath, tableView)
+            cell.configuration(data: content)
+            return cell
+
         case .switchCell:
-            let switchCell = tableView.dequeueReusableCell(withIdentifier: "SwitchTableViewCell", for: indexPath) as? SwitchTableViewCell
-            switchCell?.configuration(data: content)
-            switchCell?.selectionStyle = .none
-            return switchCell ?? UITableViewCell()
+            let cell = universalCell2(cell: SwitchTableViewCell(), accessoryType: .disclosureIndicator, indexPath, tableView)
+            cell.configuration(data: content)
+            return cell
         case .imageCell:
-            let imageCell = tableView.dequeueReusableCell(withIdentifier: "NotifyImageTableViewCell", for: indexPath) as? NotifyImageTableViewCell
-            imageCell?.configuration(data: content)
-            imageCell?.accessoryType = .disclosureIndicator
-            return imageCell ?? UITableViewCell()
+            let cell = universalCell2(cell: NotifyImageTableViewCell(), accessoryType: .disclosureIndicator, indexPath, tableView)
+            cell.configuration(data: content)
+            return cell
         }
     }
     
