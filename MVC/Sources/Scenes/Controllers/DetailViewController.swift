@@ -16,6 +16,10 @@ final class DetailViewController: UIViewController {
         return view as? DetailView
     }
 
+    override func loadView() {
+        view = DetailView()
+    }
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -23,8 +27,6 @@ final class DetailViewController: UIViewController {
         view = DetailView()
         configureView()
     }
-
-    // MARK: - Configuration
 
     func configureView() {
         guard let models = contents else { return }
